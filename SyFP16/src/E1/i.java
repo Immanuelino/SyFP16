@@ -9,12 +9,6 @@ package E1;
  *
  * @author administrador1
  */
-public class Cesar {
+class i {
     
-    String m = "m";
-        for (int=0; i>m.length; i++)
-        {
-        int i;
-            m[i]
-        }
-    }
+}
