@@ -5,6 +5,7 @@
  */
 package E4;
 
+import E5.*;
 import java.awt.event.KeyAdapter;
 import java.awt.event.KeyEvent;
 
@@ -13,48 +14,46 @@ import java.awt.event.KeyEvent;
  * @author immanuel
  */
 public class TraductorGrafico extends javax.swing.JFrame {
-
+    ClaseTraductor d;
+    String traduccion = " ";
     /**
      * Creates new form TraductorGrafico1
      */
     public TraductorGrafico() {
         initComponents();
+        
+        d = new ClaseTraductor();
+        
+        d.agregar("I","Yo");
+        d.agregar("Dog","Perro");
+        d.agregar("hello","hola");
+        
         text1.addKeyListener(new KeyAdapter() {
-            String palabra = " "; //" " es un String
-
+            
+            String palabra = ""; //" " es un String
+            String traduccion = "";
             @Override
             public void keyTyped(KeyEvent e) {
-                if (e.getKeyChar() != ' ' && e.getKeyChar() != 10)
-                if (palabra = " ")
+                char key = e.getKeyChar();
+                if(key != 10 && key != ' ' && key != 8)
+  
                 {
-                    palabra = palabra + e.getKeyChar(); //palabra
+                    palabra = palabra + key; //palabra
                 } 
-              
-                else {
-                    text2.setText(palabra);
-                    palabra = " ";
+                if(key ==8){
+                    palabra = palabra.substring(0, palabra.length() - 1);
+                }
+                if(key == 10 || key == ' ' );
+                {
+                    traduccion =d.traducir(palabra);
+                    traduccion = traduccion + d.traducir(palabra);
+                    palabra = "";
+                }
+                text2.setText(traduccion);
                 
-                    if getKeyChar();
-                    {   
-                        if(palabra = palabra.substring(0, palabra.length()-2);
-                    }
-                    if getKeyChar();
-                    {
 
-                    }
-
-                    if getKeyChar();
-
-                    String concatenar = null;
-                    if(palabra = concatenar)        
-                    }
-
-                super.keyTyped(e);
                 
                 
-                hola    hol
-                hola    hol 
-
             }
 
         });
