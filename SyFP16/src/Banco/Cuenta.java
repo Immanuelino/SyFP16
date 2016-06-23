@@ -5,12 +5,16 @@
  */
 package Banco;
 
+import java.util.ArrayList;
+
 /**
  *
  * @author immanuel
  */
-public class Cuenta extends Cliente{
-   
+public class Cuenta extends Banco{
+    double saldo;
+    double cantidad;
+    
     public double checkSaldo(double saldo){
     return 2000.00;
     }
@@ -43,6 +47,18 @@ public class Cuenta extends Cliente{
         }
         
     }    
+
+    String getSaldo() {
+        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
+    }
+
+    String getNombre() {
+        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
+    }
+
+    String getEdad() {
+        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
+    }
     
     
     
