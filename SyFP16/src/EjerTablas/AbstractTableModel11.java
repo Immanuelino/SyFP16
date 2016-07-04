@@ -9,6 +9,8 @@ import java.io.BufferedReader;
 import java.io.FileNotFoundException;
 import java.io.FileReader;
 import java.io.IOException;
+import java.util.logging.Level;
+import java.util.logging.Logger;
 import javax.swing.table.AbstractTableModel;
 
 /**
@@ -16,15 +18,62 @@ import javax.swing.table.AbstractTableModel;
  * @author immanuel
  */
 public class AbstractTableModel11 extends AbstractTableModel {
+    String nombreArchivo;
+    public int contRenglon()
+    {
+        BufferedReader br1 = null;
+        String row[];
+        i = 0;
+        String linea;
+ 
+ 
+ 
+       
+        try
+        {           
+           
+            
+            br1 = new BufferedReader(new FileReader(nombreArchivo));
+            linea = br1.readLine();
+            while(linea != null){
+                i = i + 1;
+                linea = br1.readLine();
+            }
+        }
+        
+        catch (IOException ex) {
+            System.out.println("Error: no lee");
+        }
+        return i;
+    }
+    
+    public int contColumna()
+    {
+        BufferedReader l = null;
+        String linea;
+        String column[];
+        try{
+            l= new BufferedReader(new FileReader(nombreArchivo));
+            linea = l.readLine();
+            column = linea.split(",");
+            i = column.length;
+        } catch (IOException ex) {
+            System.out.println("Error: no lee columna");
+        }
+        return i;
+        
+    }
+    int i = 0;
+    String row[];
+    
+    
     String[][] m;
    
     public AbstractTableModel11(String loquesea) throws IOException {
-        int i = 0;
-        
-        m= new String[101][6];
-        
+        nombreArchivo = loquesea;
         BufferedReader br = null;
-        
+        int i = 0;
+        m= new String[contRenglon()][contColumna()];
         String row[];
         
         try{
@@ -42,9 +91,9 @@ public class AbstractTableModel11 extends AbstractTableModel {
             System.out.println("Archivo no se encuentra disponible");
             
         }
-        finally{
-            
-        }
+        
+        
+        
         
         
         
@@ -54,12 +103,12 @@ public class AbstractTableModel11 extends AbstractTableModel {
 
     @Override
     public int getRowCount() {
-        return 101;
+        return contRenglon();
     }
 
     @Override
     public int getColumnCount() {
-        return 6;
+        return contColumna();
     }
 
     @Override
